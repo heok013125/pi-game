@@ -34,6 +34,8 @@ draw = ImageDraw.Draw(img)
 
 # 게임 상태
 player = [W // 2, H - 40]
+vx = 3
+vy = 3
 ball = [W // 2, 40]
 score = 0
 speed = 4
@@ -57,11 +59,19 @@ while True:
             player[0] += speed
         player[0] = max(12, min(W - 12, player[0]))
 
-        ball[1] += 3
-        if ball[1] > H:  # 놓침
-            ball[1] = 0
-            ball[0] = random.randint(20, W - 20)
-            score -= 1
+        ball[0] += vx
+        ball[1] += vy
+
+        if ball[0] <= 6 :
+            vx = abs(vx)
+        elif ball[0] >= W - 6 :
+            vx = -abs(vx)
+
+        if ball[1] <= 6 :
+            vx = abs(vy)
+        elif ball[1] >= H - 6 :
+            vx = -abs(vy)
+
 
         if abs(ball[1] - player[1]) < 12 and abs(ball[0] - player[0]) < 20:  # 받음
             ball[1] = 0
