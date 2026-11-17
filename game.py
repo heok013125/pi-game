@@ -63,10 +63,8 @@ while True:
             ball[0] = random.randint(20, W - 20)
             score -= 1
 
-        if abs(ball[1] - player[1]) < 12 and abs(ball[0] - player[0]) < 20:  # 받음
-            ball[1] = 0
-            ball[0] = random.randint(20, W - 20)
-            score += 1
+        if abs(ball[1] - player[1]) < 12 and abs(ball[0] - player[0]) < 20 :  # 받음
+            vy = -abs(vy)
 
         if not RESET.value:
             score = 0
