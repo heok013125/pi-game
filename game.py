@@ -46,14 +46,14 @@ while True:
     now = time.monotonic()
     acc += now - prev
     prev = now
-    if acc > 0.25:
+    if acc > 0.25 :
         acc = 0.0
 
     # 로직: 1/60초 단위로 처리
-    while acc >= STEP:
-        if not LEFT.value:
+    while acc >= STEP :
+        if not LEFT.value :
             player[0] -= speed
-        if not RIGHT.value:
+        if not RIGHT.value :
             player[0] += speed
         player[0] = max(12, min(W - 12, player[0]))
 
